@@ -2,9 +2,18 @@
 
 ## 1. 発生した問題 (Symptoms)
 Ubuntu 24.04にて、カーネルアップデート後に以下の多層的な障害が発生。
-- **Phase 1:** 起動時の `KERNEL PANIC! (exitcode=0x00000007)`
-- **Phase 2:** 旧カーネル起動後のマウスカーソル矩形化（描画異常）およびシステムハング
-- **Phase 3:** 強制終了後の `VFS: Unable to mount root fs on unknown-block(0,0)`（起動イメージ破損）
+
+### Phase 1: 起動時の KERNEL PANIC
+- **症状:** `KERNEL PANIC! Attempted to kill init! exitcode=0x00000007`
+![Kernel Panic Init](images/panic_init.png)
+
+### Phase 2: 描画異常とシステムハング
+- **症状:** マウスカーソル矩形化および極度の低速化
+![Square Cursor Bug](images/cursor_bug.png)
+
+### Phase 3: 起動イメージ破損
+- **症状:** `VFS: Unable to mount root fs on unknown-block(0,0)`
+![Kernel Panic VFS](images/panic_vfs.png)
 
 ## 2. 実行環境 (Environment)
 - **OS:** Ubuntu 24.04 LTS
